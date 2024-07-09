@@ -1,0 +1,17 @@
+gsconnect@andyholmes.github.io
+audio-selector@harald65.simon.gmail.com
+wintile@nowsci.com
+CoverflowAltTab@palatis.blogspot.com
+drive-menu@gnome-shell-extensions.gcampax.github.com
+user-theme@gnome-shell-extensions.gcampax.github.com
+openweather-extension@jenslody.de
+Vitals@CoreCoding.com
+arcmenu@arcmenu.com
+caffeine@patapon.info
+burn-my-windows@schneegans.github.com
+custom-hot-corners-extended@G-dH.github.com
+emoji-selector@maestroschan.fr
+clipboard-indicator@tudmotu.com
+ubuntu-appindicators@ubuntu.com
+ubuntu-dock@ubuntu.com
+ding@rastersoft.com
