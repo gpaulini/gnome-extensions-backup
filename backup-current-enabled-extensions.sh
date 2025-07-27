@@ -1,7 +1,11 @@
 #!/bin/bash
-mkdir ~/temp-gnome-extensions
-cd ~/temp-gnome-extensions
-gnome-extensions list --enabled > ~/temp-gnome-extensions/extensions-list.txt
+local_repo=/var/www/gnome-extensions-backup #~/temp-gnome-extensions
+mkdir -p $local_repo  
+cd $local_repo
+
+rm gnome-extensions-backup.tar.gz extensions-list.txt
+
+gnome-extensions list --enabled > $local_repo/extensions-list.txt
 
 required_pkgs="tar jq wget curl dconf-editor git"
 for pkg in $required_pkgs; do
@@ -15,15 +19,15 @@ while read extension; do
   wget -O "$extension.zip" "$download_url"
 done < ~/extensions-list.txt
 
-mkdir -p ~/temp-gnome-extensions/configs
-dconf dump /org/gnome/shell/extensions/ > ~/temp-gnome-extensions/configs/extensions-config.dconf
+mkdir -p $local_repo/configs
+dconf dump /org/gnome/shell/extensions/ > $local_repo/configs/extensions-config.dconf
 
-tar -czvf ~/temp-gnome-extensions/gnome-extensions-backup.tar.gz -C ~/temp-gnome-extensions .
+tar -czvf $local_repo/gnome-extensions-backup.tar.gz -C $local_repo .
 
 git init
 git remote add origin git@github.com:gpaulini/gnome-extensions-backup.git
-git add gnome-extensions-backup.tar.gz extensions-list.txt
+git add .
 git commit -m "backed up on $(date +'%m-%d-%Y at %H:%M:%S')"
 git push -f origin main
 
-sudo rm -rf ~/temp-gnome-extensions
+# sudo rm -rf $local_repo
