@@ -24,6 +24,6 @@ git init
 git remote add origin git@github.com:gpaulini/gnome-extensions-backup.git
 git add gnome-extensions-backup.tar.gz extensions-list.txt
 git commit -m "backed up on $(date +'%m-%d-%Y at %H:%M:%S')"
-git push -f origin master
+git push -f origin main
 
 sudo rm -rf ~/temp-gnome-extensions
